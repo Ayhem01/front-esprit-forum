@@ -1,0 +1,67 @@
+
+<div id="layout" >
+  <body>
+
+  <app-header-back></app-header-back>
+  <div class="d-flex">
+    <app-sidebar></app-sidebar>
+    <main class="main">
+      <div class="container">
+        <!-- Formulaire de création de post -->
+        <h4>All Posts :</h4>
+
+
+
+        <!-- Liste des Posts -->
+        <div *ngIf="posts?.length > 0" class="mt-5">
+          <div class="row">
+            <div class="col-md-6" *ngFor="let post of posts">
+              <div *ngIf="post" class="card mb-3 post">
+                <div class="card-body">
+                  <p class="card-text"><strong>{{ post.student.name }}</strong></p>
+                  <p class="card-text">{{ post.content }}</p>
+                  <p class="card-text">{{ post.postStatus }}</p>
+
+                  <p class="card-text text-muted">{{ post.datePost }}</p>
+                  <button (click)="deletePost(post.id)" class="btn btn-danger">Supprimer</button>
+                  <div class="comments">
+                    <h6 class="text-muted">Comments :</h6>
+                    <ul class="list-unstyled">
+                      <li *ngFor="let comment of post.comments" class="comment">
+                        <p><strong>{{ comment.user }}</strong></p>
+                        <p>{{ comment.content }}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aucun post trouvé -->
+        <div *ngIf="posts?.length === 0" class="mt-5">
+          <p class="text-center">Aucun post trouvé.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+<app-footer></app-footer>
+<script src="assets/assetsf/js/vendor/modernizr-3.6.0.min.js"></script>
+<script src="assets/assetsf/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="assets/assetsf/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+<script src="assets/assetsf/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="assets/assetsf/js/plugins/waypoints.js"></script>
+<script src="assets/assetsf/js/plugins/wow.js"></script>
+<script src="assets/assetsf/js/plugins/magnific-popup.js"></script>
+<script src="assets/assetsf/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="assets/assetsf/js/plugins/select2.min.js"></script>
+<script src="assets/assetsf/js/plugins/isotope.js"></script>
+<script src="assets/assetsf/js/plugins/scrollup.js"></script>
+<script src="assets/assetsf/js/plugins/swiper-bundle.min.js"></script>
+<script src="assets/assetsf/js/plugins/counterup.js"></script>
+<script src="assets/assetsf/js/main8c94.js?v=4.1"></script>
+</body>
+</div>
+
+
