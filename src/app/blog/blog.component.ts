@@ -11,8 +11,11 @@ import {CommentServiceService} from "../service/comment-service.service";
 export class BlogComponent implements OnInit {
   posts: any;
   postForm!: FormGroup;
+  postStatusForms: { [key: string]: FormGroup } = {};
   message!:string;
   createCommentForm!: FormGroup;
+  postId!:number;
+
   constructor(private fb: FormBuilder, private postService: PostServiceService , private commentService: CommentServiceService) {}
 
   ngOnInit(): void {
@@ -27,13 +30,37 @@ export class BlogComponent implements OnInit {
     this.createCommentForm= this.fb.group({
       comment: ['', Validators.required]
     })
+
+
   }
 
   loadPosts(): void {
     this.postService.getAllPost().subscribe(posts => {
       this.posts = posts;
+      this.posts.forEach((post:any) => {
+        this.postStatusForms[ post.id] = this.fb.group({
+          postStatus: [post.postStatus, Validators.required]
+        });
+      });
       console.log(this.posts);
     });
+  }
+  updatePostStatus(post : any)  {
+    debugger;
+    if (this.postStatusForms[post.id].valid) {
+
+      post.postStatus = this.postStatusForms[post.id].value.postStatus
+
+      this.postService.updatePost(post.id,post).subscribe(
+          (response: any) => {
+            alert('Post modified successfully');
+          },
+          (error: any) => {
+            console.log('Error modifying Post:', error);
+
+          }
+      );
+    }
   }
   addPost(): void {
     console.log("method add post")

@@ -18,12 +18,27 @@
     <div class="row">
       <div class="col-md-6" *ngFor="let post of posts">
         <div *ngIf="post.postStatus === 'APPROVED'" class="card mb-3 post">
+          <button class="btn btn-tag btn-sm w-20"   [routerLink]="['/modify', post.id]">Modify</button>
           <div class="card-body">
             <p class="card-text"><strong>{{ post.student.name }}</strong></p>
             <p class="card-text">{{ post.content }}</p>
             <p class="card-text text-muted">{{ post.datePost }}</p>
-            <button (click)="deletePost(post.id)" class="btn btn-danger">Supprimer</button>
-            <div class="comments">
+
+            <!-- Boutons de like et dislike avec icônes plus petites -->
+            <div class="btn-group" role="group" aria-label="Actions">
+              <button type="button" class="btn btn-secondary btn-sm" >
+                <mat-icon class="small-icon">thumb_up</mat-icon> Like
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm">
+                <mat-icon class="small-icon">thumb_down</mat-icon> Dislike
+              </button>
+            </div>
+
+            <!-- Bouton "Supprimer" à l'extrémité droite -->
+            <button (click)="deletePost(post.id)" class="btn btn-danger ml-auto">Supprimer</button>
+
+            <!-- Zone des commentaires -->
+            <div class="comments mt-3">
               <h6 class="text-muted">Comments :</h6>
               <form [formGroup]="createCommentForm" (ngSubmit)="addComment(post.id)">
                 <div class="form-group">
@@ -34,7 +49,8 @@
                 </div>
                 <button type="submit" [disabled]="createCommentForm.invalid" class="btn btn-primary">Commenter</button>
               </form>
-              <ul class="list-unstyled">
+              <!-- Liste des commentaires -->
+              <ul class="list-unstyled mt-3">
                 <li *ngFor="let comment of post.comments" class="comment">
                   <p><strong>{{ comment.user }}</strong></p>
                   <p>{{ comment.content }}</p>

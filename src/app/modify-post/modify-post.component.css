@@ -1,0 +1,98 @@
+@media (max-width: 1399.98px)
+.panel-body {
+    padding: 25px;
+}
+.panel-head {
+    border-bottom: 1px solid #E0E6F7;
+    padding: 18px 30px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.panel-white {
+    background-color: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border: 1px solid #E0E6F7;
+}
+.panel-body {
+    padding: 25px;
+}
+.card-style-2 {
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 21px 25px;
+    margin-bottom: 15px;
+    border: 1px solid #EFF2FB;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+}
+.card-style-2 .card-head .card-image {
+    max-width: 67px;
+    padding-right: 15px;
+    width: 100%;
+}
+.card-style-2 .card-head .card-title {
+    width: 100%;
+    margin-bottom: 0px !important;
+}
+h1, h2, h3, h4, h5, h6, .font-heading, .display-1, .display-2, .heading-lg, .heading-sm-1 {
+    color: #05264E;
+}
+.card-style-2 .card-head .card-title .job-type {
+    font-size: 12px;
+    line-height: 18px;
+    color: #A0ABB8;
+    background:  no-repeat 0px 3px;
+    display: inline-block;
+    padding: 0px 0px 0px 15px;
+    margin-right: 12px;
+}
+.card-style-2 .card-head .card-title .time-post {
+    font-size: 12px;
+    line-height: 18px;
+    color: #A0ABB8;
+    background: no-repeat 0px 3px;
+    display: inline-block;
+    padding: 0px 0px 0px 15px;
+    margin-right: 12px;
+}
+.card-style-2 .card-head .card-title .location {
+    font-size: 12px;
+    line-height: 18px;
+    color: #A0ABB8;
+    background: no-repeat 0px 3px;
+    display: inline-block;
+    padding: 0px 0px 0px 15px;
+    margin-right: 12px;
+}
+.card-style-2 .card-tags {
+    width: 40%;
+}
+.btn.btn-tag {
+    background-color: #EAF2FF;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    color: #66789C;
+    margin: 0px 5px 5px 0px;
+}
+.card-style-2 .card-price {
+    width: 15%;
+    min-width: 100px;
+    text-align: right;
+}
+.card-style-2 .card-price strong {
+    color: #3C65F5;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 26px;
+}
+.card-style-2 .card-price span {
+    color: #A0ABB8;
+    font-size: 12px;
+    line-height: 12px;
+}

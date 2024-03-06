@@ -11,9 +11,11 @@ import {CommentServiceService} from "../../service/comment-service.service";
 export class HomeComponent implements OnInit {
   posts: any;
   postForm!: FormGroup;
-  message!:string;
+  message!: string;
   createCommentForm!: FormGroup;
-  constructor(private fb: FormBuilder, private postService: PostServiceService , private commentService: CommentServiceService) {}
+
+  constructor(private fb: FormBuilder, private postService: PostServiceService, private commentService: CommentServiceService) {
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -25,8 +27,8 @@ export class HomeComponent implements OnInit {
     this.postForm = this.fb.group({
       content: ['', Validators.required]
     });
-    this.createCommentForm= this.fb.group({
-        comment: ['', Validators.required]
+    this.createCommentForm = this.fb.group({
+      comment: ['', Validators.required]
     })
   }
 
@@ -45,26 +47,36 @@ export class HomeComponent implements OnInit {
         this.loadPosts();
         this.postForm.reset();
 
-      },error => { console.log('in error');console.log(error)});
+      }, error => {
+        console.log('in error');
+        console.log(error)
+      });
       console.log('out');
     }
   }
+
   deletePost(id: any): void {
     this.postService.deletePost(id).subscribe(() => {
       this.loadPosts();
     });
   }
-  addComment(idPost: any ): void {
+
+  addComment(idPost: any): void {
     console.log(this.createCommentForm.get("comment")?.value);
     if (this.createCommentForm.valid) {
-      this.commentService.addComment(this.createCommentForm.get("comment")?.value,idPost, 1).subscribe((res) => {
+      this.commentService.addComment(this.createCommentForm.get("comment")?.value, idPost, 1).subscribe((res) => {
         console.log('Nouveau comment ajouté:', res);
         this.loadPosts();
         this.postForm.reset();
         this.createCommentForm.reset();
 
-      },error => { console.log('in error');console.log(error)});
+      }, error => {
+        console.log('in error');
+        console.log(error)
+      });
       console.log('out');
     }
-  }
+
+    }
+
 }

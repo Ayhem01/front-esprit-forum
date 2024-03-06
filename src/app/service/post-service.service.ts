@@ -18,5 +18,9 @@ private host="http://localhost:1920/post"
   console.log(id);
     return this.http.delete<void>(this.host+"/deletePost/"+id);
   }
-
+  updatePost(postId: any,post:any): Observable<any> {
+  console.log("test"+postId)
+    console.log(postId);
+    return this.http.post<any>(this.host+"/updatePost/"+postId,post);
+  }
 }

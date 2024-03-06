@@ -14,6 +14,10 @@ import { HomeComponent } from './Front/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BlogComponent } from './blog/blog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from "@angular/material/icon";
+import { ModifyPostComponent } from './modify-post/modify-post.component';
 
 
 
@@ -22,11 +26,14 @@ import { BlogComponent } from './blog/blog.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent, FrontLayoutComponent, BackLayoutComponent, SidebarComponent, DashboredComponent, HeaderBackComponent, HomeComponent, BlogComponent,
+    FooterComponent, FrontLayoutComponent, BackLayoutComponent, SidebarComponent, DashboredComponent, HeaderBackComponent, HomeComponent, BlogComponent, ModifyPostComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, ReactiveFormsModule,FormsModule
+    AppRoutingModule, HttpClientModule, ReactiveFormsModule,FormsModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

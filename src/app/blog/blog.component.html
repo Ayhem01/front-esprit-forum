@@ -1,4 +1,3 @@
-
 <div id="layout" >
   <body>
 
@@ -9,9 +8,6 @@
       <div class="container">
         <!-- Formulaire de création de post -->
         <h4>All Posts :</h4>
-
-
-
         <!-- Liste des Posts -->
         <div *ngIf="posts?.length > 0" class="mt-5">
           <div class="row">
@@ -22,8 +18,27 @@
                   <p class="card-text">{{ post.content }}</p>
                   <p class="card-text">{{ post.postStatus }}</p>
 
+                  <div class="update-post-status-form">
+                    <form [formGroup]="postStatusForms[post.id]" (ngSubmit)="updatePostStatus(post)">
+                      <div class="form-group">
+                        <label for="postStatus">Post Status </label>
+                        <select formControlName="postStatus" name="postStatus" id="postStatus">
+                          <option value="REJECTED" >Rejected</option>
+                          <option value="APPROVED" >APPROVED</option>
+                        </select>
+                        <div *ngIf="postStatusForms[post.id].get('postStatus')?.invalid && (postStatusForms[post.id].get('postStatus')?.dirty || postStatusForms[post.id].get('postStatus')?.touched)" class="text-danger">
+                          Selection de status est obligatoire.
+                        </div>
+                      </div>
+                      <button type="submit" [disabled]="postStatusForms[post.id].invalid" class="btn btn-primary">Modify</button>
+                    </form>
+                  </div>
+
+
                   <p class="card-text text-muted">{{ post.datePost }}</p>
-                  <button (click)="deletePost(post.id)" class="btn btn-danger">Supprimer</button>
+                  <button (click)="deletePost(post.id) "mat-fab color="warn" aria-label="Example icon button with a delete icon" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
                   <div class="comments">
                     <h6 class="text-muted">Comments :</h6>
                     <ul class="list-unstyled">
@@ -46,22 +61,20 @@
       </div>
     </main>
   </div>
-<app-footer></app-footer>
-<script src="assets/assetsf/js/vendor/modernizr-3.6.0.min.js"></script>
-<script src="assets/assetsf/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="assets/assetsf/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-<script src="assets/assetsf/js/vendor/bootstrap.bundle.min.js"></script>
-<script src="assets/assetsf/js/plugins/waypoints.js"></script>
-<script src="assets/assetsf/js/plugins/wow.js"></script>
-<script src="assets/assetsf/js/plugins/magnific-popup.js"></script>
-<script src="assets/assetsf/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="assets/assetsf/js/plugins/select2.min.js"></script>
-<script src="assets/assetsf/js/plugins/isotope.js"></script>
-<script src="assets/assetsf/js/plugins/scrollup.js"></script>
-<script src="assets/assetsf/js/plugins/swiper-bundle.min.js"></script>
-<script src="assets/assetsf/js/plugins/counterup.js"></script>
-<script src="assets/assetsf/js/main8c94.js?v=4.1"></script>
-</body>
+  <app-footer></app-footer>
+  <script src="assets/assetsf/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="assets/assetsf/js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="assets/assetsf/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+  <script src="assets/assetsf/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/assetsf/js/plugins/waypoints.js"></script>
+  <script src="assets/assetsf/js/plugins/wow.js"></script>
+  <script src="assets/assetsf/js/plugins/magnific-popup.js"></script>
+  <script src="assets/assetsf/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/assetsf/js/plugins/select2.min.js"></script>
+  <script src="assets/assetsf/js/plugins/isotope.js"></script>
+  <script src="assets/assetsf/js/plugins/scrollup.js"></script>
+  <script src="assets/assetsf/js/plugins/swiper-bundle.min.js"></script>
+  <script src="assets/assetsf/js/plugins/counterup.js"></script>
+  <script src="assets/assetsf/js/main8c94.js?v=4.1"></script>
+  </body>
 </div>
-
-
