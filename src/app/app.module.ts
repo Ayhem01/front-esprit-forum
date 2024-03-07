@@ -18,6 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from "@angular/material/icon";
 import { ModifyPostComponent } from './modify-post/modify-post.component';
+import {NzListModule} from "ng-zorro-antd/list";
+import {NzCommentModule} from "ng-zorro-antd/comment";
+import {NzAvatarModule} from "ng-zorro-antd/avatar";
+import {NzFormModule} from "ng-zorro-antd/form";
 
 
 
@@ -28,13 +32,13 @@ import { ModifyPostComponent } from './modify-post/modify-post.component';
     HeaderComponent,
     FooterComponent, FrontLayoutComponent, BackLayoutComponent, SidebarComponent, DashboredComponent, HeaderBackComponent, HomeComponent, BlogComponent, ModifyPostComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, HttpClientModule, ReactiveFormsModule,FormsModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        MatIconModule, NzListModule, NzCommentModule, NzAvatarModule, NzFormModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

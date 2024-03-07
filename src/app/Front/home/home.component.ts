@@ -34,7 +34,8 @@ export class HomeComponent implements OnInit {
 
   loadPosts(): void {
     this.postService.getAllPost().subscribe(posts => {
-      this.posts = posts;
+
+      this.posts = posts.filter((post: { postStatus: string; })=> post.postStatus ==="APPROVED");
       console.log(this.posts);
     });
   }
