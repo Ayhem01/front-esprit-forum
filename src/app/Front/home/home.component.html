@@ -1,4 +1,6 @@
 <div class="container">
+  <button (click)="loginWithMetaMask()">Se connecter avec MetaMask</button>
+
   <!-- Formulaire de création de post -->
   <div class="post-form">
     <form [formGroup]="postForm" (ngSubmit)="addPost()">

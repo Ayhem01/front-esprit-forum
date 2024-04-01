@@ -4,6 +4,7 @@ import { FrontLayoutComponent } from './front-layout/front-layout.component';
 import { BackLayoutComponent } from './back-layout/back-layout.component';
 import { BlogComponent } from './blog/blog.component'
 import {ModifyPostComponent} from "./modify-post/modify-post.component";
+import {TransactionComponent} from "./transaction/transaction.component";
 
 
 
@@ -11,7 +12,9 @@ const routes: Routes = [
 { path: 'front', component: FrontLayoutComponent },
  { path: 'back', component: BackLayoutComponent },
   { path: 'blog', component: BlogComponent},
-    {path: 'modify/:postId', component:ModifyPostComponent}
+    {path: 'modify/:postId', component:ModifyPostComponent},
+    { path: 'transaction', component: TransactionComponent}
+
 
 
 

@@ -22,6 +22,7 @@ import {NzListModule} from "ng-zorro-antd/list";
 import {NzCommentModule} from "ng-zorro-antd/comment";
 import {NzAvatarModule} from "ng-zorro-antd/avatar";
 import {NzFormModule} from "ng-zorro-antd/form";
+import { TransactionComponent } from './transaction/transaction.component';
 
 
 
@@ -30,7 +31,7 @@ import {NzFormModule} from "ng-zorro-antd/form";
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent, FrontLayoutComponent, BackLayoutComponent, SidebarComponent, DashboredComponent, HeaderBackComponent, HomeComponent, BlogComponent, ModifyPostComponent,
+    FooterComponent, FrontLayoutComponent, BackLayoutComponent, SidebarComponent, DashboredComponent, HeaderBackComponent, HomeComponent, BlogComponent, ModifyPostComponent, TransactionComponent,
   ],
     imports: [
         BrowserModule,

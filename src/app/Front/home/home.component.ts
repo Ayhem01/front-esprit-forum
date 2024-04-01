@@ -3,16 +3,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostServiceService } from "../../service/post-service.service";
 import {CommentServiceService} from "../../service/comment-service.service";
 
+declare global {
+    interface Window {
+        ethereum?: any;
+    }
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css', '../../../assets/assetsf/css/stylecd4e.css']
 })
 export class HomeComponent implements OnInit {
+
   posts: any;
   postForm!: FormGroup;
   message!: string;
   createCommentForm!: FormGroup;
+
 
   constructor(private fb: FormBuilder, private postService: PostServiceService, private commentService: CommentServiceService) {
   }
@@ -22,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.loadPosts();
     console.log("test");
   }
+
 
   initForm(): void {
     this.postForm = this.fb.group({
@@ -78,6 +86,24 @@ export class HomeComponent implements OnInit {
       console.log('out');
     }
 
+
     }
+  loginWithMetaMask() {
+    if (window.ethereum) {
+      window.ethereum.enable()
+          .then((accounts: string[]) => {
+            console.log('Connected with MetaMask');
+            console.log('Accounts:', accounts);
+            alert('Vous êtes connecté avec MetaMask!');
+
+          })
+          .catch((error: any) => {
+            console.error('Error connecting with MetaMask:', error);
+          });
+    } else {
+      console.error('MetaMask is not installed');
+    }
+  }
+
 
 }
