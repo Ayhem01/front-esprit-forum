@@ -5,3 +5,7 @@
     <button (click)="buyPack('Gold')">Acheter Pack Gold</button>
     <button (click)="buyPack('Silver')">Acheter Pack Silver</button>
 </div>
+<div>
+    <h2>QR Code de la transaction</h2>
+    <img #qrCode [src]="qrCodeUrl" alt="QR Code"></div>
+
