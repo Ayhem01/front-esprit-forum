@@ -23,4 +23,8 @@ private host="http://localhost:1920/post"
     console.log(postId);
     return this.http.post<any>(this.host+"/updatePost/"+postId,post);
   }
+  getPostStatusCounts(): Observable<any> {
+    return this.http.get(this.host+"/statuses")
+
+  }
 }

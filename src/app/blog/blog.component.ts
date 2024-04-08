@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {PostServiceService} from "../service/post-service.service";
 import {CommentServiceService} from "../service/comment-service.service";
+import * as echarts from 'echarts';
 
 @Component({
   selector: 'app-blog',
@@ -22,6 +23,9 @@ export class BlogComponent implements OnInit {
     this.initForm();
     this.loadPosts();
     console.log("test");
+    this.postService.getPostStatusCounts().subscribe(data => {
+      this.renderChart(data);
+    });
   }
   initForm(): void {
     this.postForm = this.fb.group({
@@ -32,6 +36,27 @@ export class BlogComponent implements OnInit {
     })
 
 
+  }
+  renderChart(data: any): void {
+    const chart = echarts.init(document.getElementById('post-chart'));
+    const option = {
+      title: {
+        text: 'Statut des Posts'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+      },
+      series: [
+        {
+          name: 'Statut',
+          type: 'pie',
+          radius: '50%',
+          data: Object.entries(data).map(([key, value]) => ({ name: key, value: value }))
+        }
+      ]
+    };
+    chart.setOption(option);
   }
 
   loadPosts(): void {

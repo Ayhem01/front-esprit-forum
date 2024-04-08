@@ -52,7 +52,7 @@ export class TransactionComponent {
     try {
       const transactionReceipt = await this.web3.eth.sendTransaction({
         from: fromAddress,
-        to: '0x6E54583cBf493b82877b14a2359002d3404e742b',
+        to: '0x84Dc013536Ca205DC5dADb11ec51e7a2cbB229cf',
         value: this.web3.utils.toWei(value.toString(), 'ether')
       });
 
