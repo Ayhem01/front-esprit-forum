@@ -52,7 +52,7 @@ export class TransactionComponent {
     try {
       const transactionReceipt = await this.web3.eth.sendTransaction({
         from: fromAddress,
-        to: '0x84Dc013536Ca205DC5dADb11ec51e7a2cbB229cf',
+        to: '0x351182F16a3b7E5D8D49e587C0f5C79C17ED5D4A',
         value: this.web3.utils.toWei(value.toString(), 'ether')
       });
 
@@ -60,7 +60,7 @@ export class TransactionComponent {
       if (transactionReceipt.transactionHash) {
         const transactionHash: string = transactionReceipt.transactionHash.toString();
         console.log('Transaction Hash:', transactionHash);
-        this.generateQRCode(transactionHash, fromAddress, '0x6E54583cBf493b82877b14a2359002d3404e742b', value);
+        this.generateQRCode(transactionHash, fromAddress, '0x351182F16a3b7E5D8D49e587C0f5C79C17ED5D4A', value);
       } else {
         console.error('La transaction n\'a pas retourné de hash de transaction.');
       }
