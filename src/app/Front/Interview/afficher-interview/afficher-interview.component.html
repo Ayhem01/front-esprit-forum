@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-header></app-header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+    
+      <full-calendar [options]="calendarOptions"></full-calendar>
+
+    </div>
+    <div class="col-md-4">
+      <div class="container">
+        <form [formGroup]="interviewForm" (ngSubmit)="onSubmit()" class="container mt-5">
+          <div class="form-group">
+            <label>Description:</label>
+            <input type="text" class="form-control" formControlName="description">
+          </div>
+
+          <div class="form-group">
+            <label>Local:</label>
+            <input type="text" class="form-control" formControlName="local">
+          </div>
+
+          <div class="form-group">
+            <label>Date:</label>
+            <input type="datetime-local" class="form-control" formControlName="date">
+          </div>
+
+          <div class="form-group">
+            <label>Student:</label>
+            <input type="number" class="form-control" formControlName="studentId">
+          </div>
+
+          <div class="form-group">
+            <label>Company:</label>
+            <input type="number" class="form-control" formControlName="idCompany">
+          </div>
+
+          <div class="form-group">
+            <label>Salle:</label>
+            <input type="number" class="form-control" formControlName="salleId">
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="interviewForm.invalid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <!-- Close button -->
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <!-- Event details -->
+      <h2>Event Details</h2>
+      <p>Title: {{ selectedEvent?.title }}</p>
+      <p>Start Date: {{ selectedEvent?.start }}</p>
+      <!-- Add more event details as needed -->
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col">
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

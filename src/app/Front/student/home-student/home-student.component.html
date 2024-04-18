@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+    <h2>List of Offers</h2>
+    <div class="text-end" >
+        <button class="btn btn-tag btn-sm mb-3" routerLink="/my-applications">My applications</button></div>
+    <div class="main-header">
+        <div class="header-left">
+            <div class="header-search">
+              
+                <div class="form-find text-start mt-40 wow animate__ animate__fadeInUp animated" data-wow-delay=".2s"
+                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <form>
+                        <input class="form-input input-keysearch mr-10" type="text" placeholder="Your keyword...">
+                        <button class="btn btn-default btn-tag btn-find font-sm">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3">
+        <div *ngFor="let offer of offers" class="col">
+            <div class="row display-list">
+                <div class="col-lg-6">
+                    <div class="card-style-2 hover-up" [ngClass]="{
+                        'bg-primary': offer.offerType === 'Type1',
+                        'bg-success': offer.offerType === 'Type2',
+                        'bg-info': offer.offerType === 'Type3',
+                        'bg-warning': offer.offerType === 'Type4',
+                        'bg-danger': offer.offerType === 'Type5'
+                        }">
+                        <div class="card-body d-flex flex-column">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <h2>{{ offer.title }}</h2>
+                                </li>
+                                <li class="list-group-item"><strong>Description:</strong>{{ offer.description }}</li>
+                                <li class="list-group-item"><strong>Offer Type:</strong> {{ offer.offerType }}</li>
+                                <li class="list-group-item"><strong>Start Date:</strong> {{ offer.startDate }}</li>
+                                <li class="list-group-item"><strong>Duration:</strong> {{ offer.duration }}</li>
+                                <li class="list-group-item"><strong>Expiration Date:</strong> {{ offer.espirationDate }}</li>
+                                <li class="list-group-item"><strong>Active:</strong> {{ offer.active }}</li>
+                            </ul>
+                            <div class="text-end mt-3">
+                                <button class="btn btn-tag btn-sm w-20" [routerLink]="['/apply-offre', offer.id]">Apply</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<app-footer></app-footer>
