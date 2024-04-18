@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  
+    height: 100vh;
+    width: 100vw;
+  }
+  .card-style-2{
+    border-radius: 8px;
+    border: 1px solid #E0E6F7;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+    background: #F8FAFF;
+  }
+  .hover-up {
+    transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}

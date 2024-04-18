@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container">
+    <h1>List of Offers</h1>
+   <div class="text-end" >
+    <button class="btn btn-tag btn-sm mb-3" routerLink="/add-offre">Add Offer</button></div>
+    <div class="row row-cols-1 row-cols-md-3 ">
+        <div *ngFor="let offer of offers" class="col-md-4">
+            <div class="row display-list">
+                <div class="col-lg-6">
+                  <div class="card-style-2 hover-up" [ngClass]="{
+                      'bg-primary': offer.offerType === 'Type1',
+                      'bg-success': offer.offerType === 'Type2',
+                      'bg-info': offer.offerType === 'Type3',
+                      'bg-warning': offer.offerType === 'Type4',
+                      'bg-danger': offer.offerType === 'Type5'
+                    }">
+            
+                    <div class="card-body d-flex flex-column">
+
+                      <ul class="list-group list-group-flush flex-grow-1">
+                        <li class="list-group-item"><h2>{{ offer.title }}</h2></li>
+                        <li class="list-group-item"><strong>Description:</strong>{{ offer.description }}</li>
+                            <li class="list-group-item"><strong>Offer Type: </strong>{{ offer.offerType }}</li>
+                        <li class="list-group-item"><strong>Start Date:</strong> {{ offer.startDate }}</li>
+                        <li class="list-group-item"><strong>Duration:</strong> {{ offer.duration }}</li>
+                        <li class="list-group-item"><strong>Expiration Date:</strong> {{ offer.espirationDate }}</li>
+                        <li class="list-group-item"><strong>Active:</strong> {{ offer.active }}</li>
+                      </ul>
+                
+                      <div class="card-tags text-end">
+                        <button class="btn btn-tag btn-sm w-20 " [routerLink]="['/app-applications-by-id',offer.id]"  >Applications</button>
+                        <button class="btn btn-tag btn-sm w-20 " (click)="deleteOffer(offer.id)">Delete</button>
+                        <button class="btn btn-tag btn-sm w-20"   [routerLink]="['/modify-offre',offer.id]">Modify</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

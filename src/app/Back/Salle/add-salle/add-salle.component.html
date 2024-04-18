@@ -1,0 +1,72 @@
+<app-header-back></app-header-back>
+
+<main class="main">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <app-sidebar></app-sidebar>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <h2>Liste des salles</h2>
+      <div *ngIf="rooms.length > 0; else noRooms">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let room of rooms">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Salle {{ room.id }}</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Code:</strong> {{ room.code }}</li>
+                  <li class="list-group-item"><strong>Block:</strong> {{ room.block }}</li>
+                  <li class="list-group-item"><strong>Réservé:</strong> {{ room.reserved ? 'Oui' : 'Non' }}</li>
+                </ul>
+                <div class="card-tags text-end">
+                  <button class="btn btn-tag btn-sm w-20 "  [routerLink]="['/app-details-salle',room.id]" >Details</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noRooms>
+        <p>Aucune salle disponible pour le moment.</p>
+      </ng-template>
+      
+
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-style-2 hover-up">
+          
+        <div class="container">
+          <h6>ADD Salle</h6>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+            <div class="form-group">
+              <label for="code">Code:</label>
+              <input type="text" class="form-control" id="code" formControlName="code">
+             
+            </div>
+
+            <div class="form-group">
+              <label for="block">Block:</label>
+              <input type="text" class="form-control" id="block" formControlName="block">
+             
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<app-footer></app-footer>
